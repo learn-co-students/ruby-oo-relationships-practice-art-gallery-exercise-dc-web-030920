@@ -2,6 +2,8 @@
 
 In this project, we will be practicing object relationships in Ruby, with a particular emphasis on the `has_many` `through` relationship (aka: many-to-many). Please read the whole README before writing any code!
 
+
+
 ### Introduction
 
 You got yourself a fancy new job and you've been put in charge of making a program to keep track of paintings, and the galleries that are selling them.  
