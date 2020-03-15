@@ -39,15 +39,21 @@ class Gallery
 
   def most_expensive_painting
 # Returns an `instance` of the most expensive painting in a gallery
-    highest_price = 0 
-    most_expensive_painting = nil
-    self.paintings.each do |p|
-      if p.price > highest_price
-           highest_price = p.price 
-           most_expensive_painting = p 
-      end 
+  #   highest_price = 0 
+  #   most_expensive_painting = nil
+  #   self.paintings.each do |p|
+  #     if p.price > highest_price
+  #          highest_price = p.price 
+  #          most_expensive_painting = p 
+  #     end 
+  #   end
+  #   most_expensive_painting
+  # end 
+
+  def most_expensive_painting
+    paintings.max_by do |painting|
+      painting.price
     end
-    most_expensive_painting
-  end 
+  end
 
 end
