@@ -19,11 +19,15 @@ class Painting
 
   def self.total_price
     # Returns an `integer` that is the total price of all paintings
-  total = 0 
-    self.all.each do |p|
-      total += p.price
-    end 
-    total
-  end 
+  # total = 0 
+  #   self.all.each do |p|
+  #     total += p.price
+  #   end 
+  #   total
+  # end 
+  self.all.reduce(0) do |sum, painting|
+    sum + painting.price
+  end
+end
 
 end

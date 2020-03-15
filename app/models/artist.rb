@@ -40,26 +40,35 @@ end
 
 #  Returns an `integer` that is the total years of experience of all artists
 def self.total_experience
-  total = 0 
-  self.all.each do |a|
-    total += a.years_experience
-  end 
-  total
+#   total = 0 
+#   self.all.each do |a|
+#     total += a.years_experience
+#   end 
+#   total
+# end
+  self.all.reduce(0) do |sum, artist|
+    sum + artist.years_experience
+  end
 end
 
 # Returns an `instance` of the artist with the highest amount of paintings per year of experience.
 def self.most_prolific
-paintings_per_yr = 0.to_f
-most_prolific = nil 
-  self.all.each do |a|
-      a_paintings_per_yer = a.paintings.count.to_f/a.years_experience.to_f
-      if a_paintings_per_yer > paintings_per_yr
-        paintings_per_yr = a_paintings_per_yer
-        most_prolific = a 
-      end 
-  end 
-  most_prolific
-end 
+# paintings_per_yr = 0.to_f
+# most_prolific = nil 
+#   self.all.each do |a|
+#       a_paintings_per_yer = a.paintings.count.to_f/a.years_experience.to_f
+#       if a_paintings_per_yer > paintings_per_yr
+#         paintings_per_yr = a_paintings_per_yer
+#         most_prolific = a 
+#       end 
+#   end 
+#   most_prolific
+# end 
+  self.all.max_by do |artist|
+    artist.paintings.length.to_f / artist.years_experience.to_f
+  end
+ end
+
 
 def create_painting(title,price,gallery)
 # Given the arguments of `title`, `price` and `gallery`, creates a new painting belonging to that artist

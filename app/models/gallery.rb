@@ -49,8 +49,6 @@ class Gallery
   #   end
   #   most_expensive_painting
   # end 
-
-  def most_expensive_painting
     paintings.max_by do |painting|
       painting.price
     end
